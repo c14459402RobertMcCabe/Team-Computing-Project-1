@@ -1,0 +1,45 @@
+/*Program to Detect the blocks in the maze
+*/
+#pragma	config(Sensor, S2, sonarSensor, sensorSONAR)
+
+task main()
+{
+	
+int line_count = 0;
+int line_count2 = 0;
+
+	motor[motorA] = 40;
+	motor[motorC] = 40;
+	wait1Msec(80);
+
+	while(true)
+	{
+		if(SensorValue[sonarSensor] < 45)
+		{
+
+			while(line_count2 == 0)
+			{
+				
+				if(SensorValue[sonarSensor] > 45)
+				{
+					line_count++;
+					line_count2 = 1;
+					
+					PlaySound(soundBeepBeep);
+					wait1Msec(20);
+					
+				}//end if
+				
+			}//end while
+			
+			/*Display how many blocks are detected
+			*/
+			nxtDisplayCenteredTextLine(3, "%d", line_count);
+			
+			line_count2 = 0;
+
+		}//end outer if
+
+	}//end outer while
+	
+}//end main

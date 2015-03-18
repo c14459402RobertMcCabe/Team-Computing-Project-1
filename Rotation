@@ -1,0 +1,24 @@
+/*Program to perform rotation
+*/
+task main()
+{
+
+nMotorEncoder[motorA] = 0; //reset value of the encoder A to 0
+nMotorEncoder[motorC] = 0; //reset value of the encoder C to 0
+
+nMotorEncoderTarget[motorA] = 670; //encoder target 670
+nMotorEncoderTarget[motorC] = -670; //encoder target -670
+
+motor[motorA] = 50;		//turn on at specific power
+motor[motorC] = -50; //turn on at specific power
+
+while(nMotorRunState[motorC] != runStateIdle)
+{
+	//idle loop the program will wait until satisfied
+
+}//end while
+
+motor[motorA] = 0;//turn off motorA
+motor[motorC] = 0;//turn off motorC
+
+}//end main ()
